@@ -1,0 +1,812 @@
+Wed, 10 May 2017 23:08:20 myLog.py[line:25] INFO info message
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO SELECT DATABASE()
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO DESCRIBE `select  trade_date,settle from fi_ttf_day_ts where  code like %(code)s order by trade_date asc`
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO ROLLBACK
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO select  trade_date,settle from fi_ttf_day_ts where  code like %(code)s order by trade_date asc
+Wed, 10 May 2017 23:08:20 log.py[line:109] INFO {'code': '%T1703.CFE%'}
+Wed, 10 May 2017 23:08:22 myLog.py[line:25] INFO info message
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO SELECT DATABASE()
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO DESCRIBE `select  trade_date,settle from fi_ttf_day_ts where  code like %(code)s order by trade_date asc`
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO {}
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO ROLLBACK
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO select  trade_date,settle from fi_ttf_day_ts where  code like %(code)s order by trade_date asc
+Wed, 10 May 2017 23:08:22 log.py[line:109] INFO {'code': '%T1703.CFE%'}
+Thu, 11 May 2017 00:00:19 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:00:58 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:02:32 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:02:58 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:03:48 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:04:22 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:04:31 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:18:11 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:18:17 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:18:37 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:19:17 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:20:45 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:25:09 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:25:28 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 00:25:28 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 00:25:28 log.py[line:109] INFO {}
+Thu, 11 May 2017 00:25:28 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 00:25:28 log.py[line:109] INFO {}
+Thu, 11 May 2017 00:25:28 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 00:25:28 log.py[line:109] INFO {}
+Thu, 11 May 2017 00:25:29 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 00:25:29 log.py[line:109] INFO {}
+Thu, 11 May 2017 00:25:29 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 00:25:29 log.py[line:109] INFO {'exp': '%TF0%'}
+Thu, 11 May 2017 01:36:19 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:37:03 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:37:43 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:37:43 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:41:03 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:41:04 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:41:04 windHelper.py[line:157] INFO list index out of range
+Thu, 11 May 2017 01:41:29 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:41:39 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:41:40 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:42:40 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:42:40 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:43:11 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:43:11 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:48:47 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:48:47 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:51:15 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:51:15 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:51:16 windHelper.py[line:120] INFO ipo_date
+Thu, 11 May 2017 01:51:28 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:51:28 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:51:39 windHelper.py[line:120] INFO ipo_date
+Thu, 11 May 2017 01:51:57 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:51:58 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:52:24 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:52:24 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:53:08 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:53:08 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:53:53 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:53:54 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:54:11 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:54:11 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:55:20 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:55:20 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:56:16 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:56:16 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:56:40 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:56:40 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:57:04 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:57:04 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 01:57:42 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO {}
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 01:57:42 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:03:15 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:03:15 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:07:17 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:07:17 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:07:31 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:07:31 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:09:05 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:09:06 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:09:14 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:09:15 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:12:17 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:12:17 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:13:19 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:13:19 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:15:03 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:15:04 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:15:13 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:15:13 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:17:13 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:17:13 log.py[line:109] INFO {'exp': '%TF%'}
+Thu, 11 May 2017 02:18:29 myLog.py[line:16] INFO info message
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO SELECT DATABASE()
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO {}
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Thu, 11 May 2017 02:18:29 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 22:05:39 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO {}
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO {}
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO {}
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO {}
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 22:05:40 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 22:15:03 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO {}
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO {}
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO {}
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO {}
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 22:15:03 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:06:20 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:06:20 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:35:27 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:35:27 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:35:48 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:35:49 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:37:32 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:37:32 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:46:00 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:46:00 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:54:58 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:54:58 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:55:20 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:55:20 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:55:42 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:55:42 log.py[line:109] INFO {'exp': '%TF%'}
+Tue, 16 May 2017 23:56:15 myLog.py[line:16] INFO info message
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO SELECT DATABASE()
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO {}
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Tue, 16 May 2017 23:56:15 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:01:10 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:01:10 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:01:12 TrsFtDayTimeSeriesLoader.py[line:55] INFO TrsFtDayTimeSeriesLoader:the daily ts data of TF00.CFE failed to be inserted, the error info is 'DatetimeIndex' object has no attribute 'iloc'
+Wed, 17 May 2017 00:01:12 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:01:12 log.py[line:109] INFO {'exp': '%T%'}
+Wed, 17 May 2017 00:01:12 windHelper.py[line:120] INFO ipo_date
+Wed, 17 May 2017 00:02:09 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:02:09 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:02:10 TrsFtDayTimeSeriesLoader.py[line:55] INFO TrsFtDayTimeSeriesLoader:the daily ts data of TF failed to be inserted, the error info is 'DatetimeIndex' object has no attribute 'iloc'
+Wed, 17 May 2017 00:02:10 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:02:10 log.py[line:109] INFO {'exp': '%T%'}
+Wed, 17 May 2017 00:02:11 windHelper.py[line:120] INFO ipo_date
+Wed, 17 May 2017 00:02:11 TrsFtDayTimeSeriesLoader.py[line:55] INFO TrsFtDayTimeSeriesLoader:the daily ts data of T failed to be inserted, the error info is ipo_date
+Wed, 17 May 2017 00:04:14 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:04:14 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:04:36 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:04:36 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:05:58 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:05:58 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:05:59 TrsFtDayTimeSeriesLoader.py[line:55] INFO TrsFtDayTimeSeriesLoader:the daily ts data of TF failed to be inserted, the error info is unhashable type
+Wed, 17 May 2017 00:05:59 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:05:59 log.py[line:109] INFO {'exp': '%T%'}
+Wed, 17 May 2017 00:05:59 windHelper.py[line:120] INFO ipo_date
+Wed, 17 May 2017 00:05:59 TrsFtDayTimeSeriesLoader.py[line:55] INFO TrsFtDayTimeSeriesLoader:the daily ts data of T failed to be inserted, the error info is ipo_date
+Wed, 17 May 2017 00:06:28 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:06:28 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:06:30 TrsFtDayTimeSeriesLoader.py[line:55] INFO TrsFtDayTimeSeriesLoader:the daily ts data of TF failed to be inserted, the error info is unhashable type
+Wed, 17 May 2017 00:07:14 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:07:14 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:17:21 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:17:21 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:17:38 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:17:38 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:20:01 TrsFtDayTimeSeriesLoader.py[line:55] INFO TrsFtDayTimeSeriesLoader:the daily ts data of TF failed to be inserted, the error info is ['trade_date'] not in index
+Wed, 17 May 2017 00:24:34 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:24:53 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:24:53 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:24:54 TrsFtDayTimeSeriesLoader.py[line:55] INFO TrsFtDayTimeSeriesLoader:the daily ts data of TF failed to be inserted, the error info is 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+Wed, 17 May 2017 00:25:04 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:25:15 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:25:15 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:26:34 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:26:47 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:26:47 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:27:04 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:27:04 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:27:22 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:27:22 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:28:09 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:28:10 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:30:02 TrsFtDayTimeSeriesLoader.py[line:54] INFO TrsFtDayTimeSeriesLoader:the daily ts data of TF failed to be inserted, the error info is ['trade_date'] not in index
+Wed, 17 May 2017 00:32:53 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:32:53 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:36:29 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:36:29 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:36:29 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:36:30 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:36:30 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:36:30 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:36:30 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:36:30 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:36:30 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:36:30 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:36:30 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:37:18 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:37:18 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:40:08 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO {}
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 00:40:08 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 00:52:08 TrsFtDayTimeSeriesLoader.py[line:54] INFO TrsFtDayTimeSeriesLoader:the daily ts data of TF failed to be inserted, the error info is ['trade_date'] not in index
+Wed, 17 May 2017 01:18:34 myLog.py[line:16] INFO info message
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO SHOW VARIABLES LIKE 'sql_mode'
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO {}
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO SELECT DATABASE()
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO {}
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO SELECT CAST('test plain returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO {}
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO SELECT CAST('test unicode returns' AS CHAR(60)) AS anon_1
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO {}
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 01:18:34 log.py[line:109] INFO {'exp': '%TF%'}
+Wed, 17 May 2017 01:30:56 TrsFtDayTimeSeriesLoader.py[line:46] INFO                   code      type    open    high     low   close  settle  \
+trade_date                                                                 
+2013-09-06  TF1312.CFE  TF00.CFE  94.220  94.540  94.140  94.170  94.192   
+2013-09-09  TF1312.CFE  TF00.CFE  94.156  94.156  93.858  93.906  93.916   
+2013-09-10  TF1312.CFE  TF00.CFE  93.870  93.916  93.806  93.842  93.846   
+2013-09-11  TF1312.CFE  TF00.CFE  93.718  93.780  93.494  93.598  93.556   
+2013-09-12  TF1312.CFE  TF00.CFE  93.590  93.830  93.590  93.728  93.752   
+
+             volume      oi  dtltd  dtldd  
+trade_date                                 
+2013-09-06  34248.0  2625.0    913    916  
+2013-09-09  11831.0  2797.0    912    915  
+2013-09-10   5375.0  2708.0    911    914  
+2013-09-11   8830.0  3293.0    910    913  
+2013-09-12   8379.0  2871.0    909    912  
+Wed, 17 May 2017 01:30:56 log.py[line:109] INFO DESCRIBE `fi_ttf_day_ts`
+Wed, 17 May 2017 01:30:56 log.py[line:109] INFO {}
+Wed, 17 May 2017 01:30:56 log.py[line:109] INFO BEGIN (implicit)
+Wed, 17 May 2017 01:30:56 log.py[line:109] INFO INSERT INTO fi_ttf_day_ts (trade_date, code, type, open, high, low, close, settle, volume, oi, dtltd, dtldd) VALUES (%(trade_date)s, %(code)s, %(type)s, %(open)s, %(high)s, %(low)s, %(close)s, %(settle)s, %(volume)s, %(oi)s, %(dtltd)s, %(dtldd)s)
+Wed, 17 May 2017 01:30:56 log.py[line:109] INFO ({'volume': 34248.0, 'code': u'TF1312.CFE', 'oi': 2625.0, 'open': 94.22, 'dtltd': 913L, 'high': 94.54, 'dtldd': 916L, 'settle': 94.192, 'low': 94.14, 'trade_date': datetime.datetime(2013, 9, 6, 0, 0), 'close': 94.17, 'type': 'TF00.CFE'}, {'volume': 11831.0, 'code': u'TF1312.CFE', 'oi': 2797.0, 'open': 94.156, 'dtltd': 912L, 'high': 94.156, 'dtldd': 915L, 'settle': 93.916, 'low': 93.858, 'trade_date': datetime.datetime(2013, 9, 9, 0, 0), 'close': 93.906, 'type': 'TF00.CFE'}, {'volume': 5375.0, 'code': u'TF1312.CFE', 'oi': 2708.0, 'open': 93.87, 'dtltd': 911L, 'high': 93.916, 'dtldd': 914L, 'settle': 93.846, 'low': 93.806, 'trade_date': datetime.datetime(2013, 9, 10, 0, 0), 'close': 93.842, 'type': 'TF00.CFE'}, {'volume': 8830.0, 'code': u'TF1312.CFE', 'oi': 3293.0, 'open': 93.718, 'dtltd': 910L, 'high': 93.78, 'dtldd': 913L, 'settle': 93.556, 'low': 93.494, 'trade_date': datetime.datetime(2013, 9, 11, 0, 0), 'close': 93.598, 'type': 'TF00.CFE'}, {'volume': 8379.0, 'code': u'TF1312.CFE', 'oi': 2871.0, 'open': 93.59, 'dtltd': 909L, 'high': 93.83, 'dtldd': 912L, 'settle': 93.752, 'low': 93.59, 'trade_date': datetime.datetime(2013, 9, 12, 0, 0), 'close': 93.728, 'type': 'TF00.CFE'}, {'volume': 6901.0, 'code': u'TF1312.CFE', 'oi': 3000.0, 'open': 93.7, 'dtltd': 908L, 'high': 93.846, 'dtldd': 911L, 'settle': 93.768, 'low': 93.678, 'trade_date': datetime.datetime(2013, 9, 13, 0, 0), 'close': 93.764, 'type': 'TF00.CFE'}, {'volume': 3850.0, 'code': u'TF1312.CFE', 'oi': 3189.0, 'open': 93.764, 'dtltd': 907L, 'high': 93.938, 'dtldd': 910L, 'settle': 93.86, 'low': 93.74, 'trade_date': datetime.datetime(2013, 9, 16, 0, 0), 'close': 93.854, 'type': 'TF00.CFE'}, {'volume': 22275.0, 'code': u'TF1312.CFE', 'oi': 5022.0, 'open': 93.87, 'dtltd': 906L, 'high': 94.558, 'dtldd': 909L, 'settle': 94.244, 'low': 93.842, 'trade_date': datetime.datetime(2013, 9, 17, 0, 0), 'close': 94.234, 'type': 'TF00.CFE'}  ... displaying 10 of 897 total bound parameter sets ...  {'volume': 5321.0, 'code': u'TF1706.CFE', 'oi': 10571.0, 'open': 97.185, 'dtltd': 18L, 'high': 97.395, 'dtldd': 21L, 'settle': 97.155, 'low': 97.105, 'trade_date': datetime.datetime(2017, 5, 15, 0, 0), 'close': 97.185, 'type': 'TF00.CFE'}, {'volume': 5398.0, 'code': u'TF1706.CFE', 'oi': 7513.0, 'open': 97.12, 'dtltd': 17L, 'high': 97.16, 'dtldd': 20L, 'settle': 96.955, 'low': 96.9, 'trade_date': datetime.datetime(2017, 5, 16, 0, 0), 'close': 96.995, 'type': 'TF00.CFE'})
+Wed, 17 May 2017 01:30:56 log.py[line:109] INFO COMMIT
+Wed, 17 May 2017 01:30:56 TrsFtDayTimeSeriesLoader.py[line:50] INFO TrsFtDayTimeSeriesLoader:The daily ts data of TF00.CFE from 2013-09-06 00:00:00.005000 to 2017-05-16 00:00:00.005000 has been inserted.
+Wed, 17 May 2017 01:42:57 TrsFtDayTimeSeriesLoader.py[line:46] INFO                   code      type    open    high     low   close  settle  \
+trade_date                                                                 
+2013-09-06  TF1403.CFE  TF01.CFE  94.694  94.694  94.200  94.288  94.312   
+2013-09-09  TF1403.CFE  TF01.CFE  94.260  94.260  93.982  94.000  94.022   
+2013-09-10  TF1403.CFE  TF01.CFE  94.000  94.000  93.900  93.930  93.926   
+2013-09-11  TF1403.CFE  TF01.CFE  93.792  93.860  93.596  93.688  93.630   
+2013-09-12  TF1403.CFE  TF01.CFE  93.706  93.942  93.706  93.842  93.868   
+
+            volume     oi  dtltd  dtldd  
+trade_date                               
+2013-09-06  1840.0  218.0    978    981  
+2013-09-09   855.0  234.0    977    980  
+2013-09-10   311.0  154.0    976    979  
+2013-09-11   348.0  221.0    975    978  
+2013-09-12   328.0  202.0    974    977  
+Wed, 17 May 2017 01:42:57 log.py[line:109] INFO DESCRIBE `fi_ttf_day_ts`
+Wed, 17 May 2017 01:42:57 log.py[line:109] INFO {}
+Wed, 17 May 2017 01:42:57 log.py[line:109] INFO BEGIN (implicit)
+Wed, 17 May 2017 01:42:57 log.py[line:109] INFO INSERT INTO fi_ttf_day_ts (trade_date, code, type, open, high, low, close, settle, volume, oi, dtltd, dtldd) VALUES (%(trade_date)s, %(code)s, %(type)s, %(open)s, %(high)s, %(low)s, %(close)s, %(settle)s, %(volume)s, %(oi)s, %(dtltd)s, %(dtldd)s)
+Wed, 17 May 2017 01:42:57 log.py[line:109] INFO ({'high': 94.694, 'code': u'TF1403.CFE', 'type': 'TF01.CFE', 'oi': 218.0, 'dtltd': 978L, 'volume': 1840.0, 'dtldd': 981L, 'settle': 94.312, 'low': 94.2, 'trade_date': datetime.datetime(2013, 9, 6, 0, 0), 'close': 94.288, 'open': 94.694}, {'high': 94.26, 'code': u'TF1403.CFE', 'type': 'TF01.CFE', 'oi': 234.0, 'dtltd': 977L, 'volume': 855.0, 'dtldd': 980L, 'settle': 94.022, 'low': 93.982, 'trade_date': datetime.datetime(2013, 9, 9, 0, 0), 'close': 94.0, 'open': 94.26}, {'high': 94.0, 'code': u'TF1403.CFE', 'type': 'TF01.CFE', 'oi': 154.0, 'dtltd': 976L, 'volume': 311.0, 'dtldd': 979L, 'settle': 93.926, 'low': 93.9, 'trade_date': datetime.datetime(2013, 9, 10, 0, 0), 'close': 93.93, 'open': 94.0}, {'high': 93.86, 'code': u'TF1403.CFE', 'type': 'TF01.CFE', 'oi': 221.0, 'dtltd': 975L, 'volume': 348.0, 'dtldd': 978L, 'settle': 93.63, 'low': 93.596, 'trade_date': datetime.datetime(2013, 9, 11, 0, 0), 'close': 93.688, 'open': 93.792}, {'high': 93.942, 'code': u'TF1403.CFE', 'type': 'TF01.CFE', 'oi': 202.0, 'dtltd': 974L, 'volume': 328.0, 'dtldd': 977L, 'settle': 93.868, 'low': 93.706, 'trade_date': datetime.datetime(2013, 9, 12, 0, 0), 'close': 93.842, 'open': 93.706}, {'high': 93.956, 'code': u'TF1403.CFE', 'type': 'TF01.CFE', 'oi': 182.0, 'dtltd': 973L, 'volume': 159.0, 'dtldd': 976L, 'settle': 93.884, 'low': 93.79, 'trade_date': datetime.datetime(2013, 9, 13, 0, 0), 'close': 93.892, 'open': 93.828}, {'high': 94.042, 'code': u'TF1403.CFE', 'type': 'TF01.CFE', 'oi': 169.0, 'dtltd': 972L, 'volume': 91.0, 'dtldd': 975L, 'settle': 93.98, 'low': 93.898, 'trade_date': datetime.datetime(2013, 9, 16, 0, 0), 'close': 93.966, 'open': 93.9}, {'high': 94.648, 'code': u'TF1403.CFE', 'type': 'TF01.CFE', 'oi': 166.0, 'dtltd': 971L, 'volume': 528.0, 'dtldd': 974L, 'settle': 94.298, 'low': 93.98, 'trade_date': datetime.datetime(2013, 9, 17, 0, 0), 'close': 94.044, 'open': 94.002}  ... displaying 10 of 897 total bound parameter sets ...  {'high': 98.285, 'code': u'TF1709.CFE', 'type': 'TF01.CFE', 'oi': 25478.0, 'dtltd': 83L, 'volume': 15694.0, 'dtldd': 86L, 'settle': 97.4, 'low': 97.285, 'trade_date': datetime.datetime(2017, 5, 15, 0, 0), 'close': 97.39, 'open': 97.3}, {'high': 97.435, 'code': u'TF1709.CFE', 'type': 'TF01.CFE', 'oi': 26653.0, 'dtltd': 82L, 'volume': 11662.0, 'dtldd': 85L, 'settle': 97.27, 'low': 97.2, 'trade_date': datetime.datetime(2017, 5, 16, 0, 0), 'close': 97.345, 'open': 97.37})
+Wed, 17 May 2017 01:42:57 log.py[line:109] INFO COMMIT
+Wed, 17 May 2017 01:42:57 TrsFtDayTimeSeriesLoader.py[line:50] INFO TrsFtDayTimeSeriesLoader:The daily ts data of TF01.CFE from 2013-09-06 00:00:00.005000 to 2017-05-16 00:00:00.005000 has been inserted.
+Wed, 17 May 2017 01:54:58 TrsFtDayTimeSeriesLoader.py[line:46] INFO                   code      type    open    high     low   close  settle  \
+trade_date                                                                 
+2013-09-06  TF1406.CFE  TF02.CFE  94.900  94.900  94.306  94.344  94.358   
+2013-09-09  TF1406.CFE  TF02.CFE  94.306  94.306  94.048  94.070  94.074   
+2013-09-10  TF1406.CFE  TF02.CFE  94.072  94.074  93.980  94.008  94.008   
+2013-09-11  TF1406.CFE  TF02.CFE  93.962  93.962  93.698  93.766  93.732   
+2013-09-12  TF1406.CFE  TF02.CFE  93.796  94.000  93.796  93.926  93.950   
+
+            volume     oi  dtltd  dtldd  
+trade_date                               
+2013-09-06   547.0  116.0   1038   1041  
+2013-09-09   124.0  111.0   1037   1040  
+2013-09-10    78.0   89.0   1036   1039  
+2013-09-11    72.0   85.0   1035   1038  
+2013-09-12    57.0  100.0   1034   1037  
+Wed, 17 May 2017 01:54:58 log.py[line:109] INFO DESCRIBE `fi_ttf_day_ts`
+Wed, 17 May 2017 01:54:58 log.py[line:109] INFO {}
+Wed, 17 May 2017 01:54:58 log.py[line:109] INFO BEGIN (implicit)
+Wed, 17 May 2017 01:54:58 log.py[line:109] INFO INSERT INTO fi_ttf_day_ts (trade_date, code, type, open, high, low, close, settle, volume, oi, dtltd, dtldd) VALUES (%(trade_date)s, %(code)s, %(type)s, %(open)s, %(high)s, %(low)s, %(close)s, %(settle)s, %(volume)s, %(oi)s, %(dtltd)s, %(dtldd)s)
+Wed, 17 May 2017 01:54:58 log.py[line:109] INFO ({'volume': 547.0, 'code': u'TF1406.CFE', 'oi': 116.0, 'open': 94.9, 'dtltd': 1038L, 'high': 94.9, 'dtldd': 1041L, 'settle': 94.358, 'low': 94.306, 'trade_date': datetime.datetime(2013, 9, 6, 0, 0), 'close': 94.344, 'type': 'TF02.CFE'}, {'volume': 124.0, 'code': u'TF1406.CFE', 'oi': 111.0, 'open': 94.306, 'dtltd': 1037L, 'high': 94.306, 'dtldd': 1040L, 'settle': 94.074, 'low': 94.048, 'trade_date': datetime.datetime(2013, 9, 9, 0, 0), 'close': 94.07, 'type': 'TF02.CFE'}, {'volume': 78.0, 'code': u'TF1406.CFE', 'oi': 89.0, 'open': 94.072, 'dtltd': 1036L, 'high': 94.074, 'dtldd': 1039L, 'settle': 94.008, 'low': 93.98, 'trade_date': datetime.datetime(2013, 9, 10, 0, 0), 'close': 94.008, 'type': 'TF02.CFE'}, {'volume': 72.0, 'code': u'TF1406.CFE', 'oi': 85.0, 'open': 93.962, 'dtltd': 1035L, 'high': 93.962, 'dtldd': 1038L, 'settle': 93.732, 'low': 93.698, 'trade_date': datetime.datetime(2013, 9, 11, 0, 0), 'close': 93.766, 'type': 'TF02.CFE'}, {'volume': 57.0, 'code': u'TF1406.CFE', 'oi': 100.0, 'open': 93.796, 'dtltd': 1034L, 'high': 94.0, 'dtldd': 1037L, 'settle': 93.95, 'low': 93.796, 'trade_date': datetime.datetime(2013, 9, 12, 0, 0), 'close': 93.926, 'type': 'TF02.CFE'}, {'volume': 31.0, 'code': u'TF1406.CFE', 'oi': 93.0, 'open': 93.906, 'dtltd': 1033L, 'high': 94.01, 'dtldd': 1036L, 'settle': 93.97, 'low': 93.88, 'trade_date': datetime.datetime(2013, 9, 13, 0, 0), 'close': 93.972, 'type': 'TF02.CFE'}, {'volume': 38.0, 'code': u'TF1406.CFE', 'oi': 93.0, 'open': 93.964, 'dtltd': 1032L, 'high': 94.096, 'dtldd': 1035L, 'settle': 94.05, 'low': 93.964, 'trade_date': datetime.datetime(2013, 9, 16, 0, 0), 'close': 94.052, 'type': 'TF02.CFE'}, {'volume': 137.0, 'code': u'TF1406.CFE', 'oi': 98.0, 'open': 94.06, 'dtltd': 1031L, 'high': 94.696, 'dtldd': 1034L, 'settle': 94.42, 'low': 94.06, 'trade_date': datetime.datetime(2013, 9, 17, 0, 0), 'close': 94.396, 'type': 'TF02.CFE'}  ... displaying 10 of 897 total bound parameter sets ...  {'volume': 74.0, 'code': u'TF1712.CFE', 'oi': 306.0, 'open': 97.3, 'dtltd': 143L, 'high': 97.425, 'dtldd': 146L, 'settle': 97.375, 'low': 97.195, 'trade_date': datetime.datetime(2017, 5, 15, 0, 0), 'close': 97.375, 'type': 'TF02.CFE'}, {'volume': 91.0, 'code': u'TF1712.CFE', 'oi': 265.0, 'open': 97.255, 'dtltd': 142L, 'high': 97.33, 'dtldd': 145L, 'settle': 97.195, 'low': 97.16, 'trade_date': datetime.datetime(2017, 5, 16, 0, 0), 'close': 97.195, 'type': 'TF02.CFE'})
+Wed, 17 May 2017 01:54:58 log.py[line:109] INFO COMMIT
+Wed, 17 May 2017 01:54:58 TrsFtDayTimeSeriesLoader.py[line:50] INFO TrsFtDayTimeSeriesLoader:The daily ts data of TF02.CFE from 2013-09-06 00:00:00.005000 to 2017-05-16 00:00:00.005000 has been inserted.
+Wed, 17 May 2017 01:54:58 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
+Wed, 17 May 2017 01:54:58 log.py[line:109] INFO {'exp': '%T%'}
+Thu, 20 Jul 2017 23:19:34 myLog.py[line:16] INFO info message

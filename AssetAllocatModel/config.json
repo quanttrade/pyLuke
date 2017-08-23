@@ -1,0 +1,12 @@
+{
+  "039.CS": {
+    "cm": {
+      "move_avg_break_through": {
+        "mv_count": 30,
+        "forward_count": 1,
+        "lag": 1,
+        "period": 1
+      }
+    }
+  }
+}
