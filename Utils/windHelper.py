@@ -6,21 +6,21 @@ from datetime import timedelta, datetime
 # app
 from myLog import logger
 
-"""
-常用字段：
-close
-settle
-volume
-"""
-class WindHelper(object):
 
+class WindHelper(object):
+    """
+    常用字段：
+    close
+    settle
+    volume
+    """
     @staticmethod
     def getWindTimeSeriesDataFrame(code, beginDate, endDate, paraList,
                                    tradingCalendar="", priceAdj="", credibility=0):
         """
         get time series from windPy, each code represents one capture
          月度合约: trade_hiscode
-           :param credibility: int
+           :param credibility: (int)
            :param code: string
            :param beginDate: date or datetime
            :param endDate: date or datetime
