@@ -1,151 +1,191 @@
 # encoding: utf-8
 import pandas as pd
 from factorEvent import *
-import math
+from common import *
 import numpy as np
 
 
-
-def calculate_info_ratio(asset_series, factor_series, event_name, config, beginDate=None, endDate=None, period=1):
-    """计算信息比率"""
-    # 计算所以调仓时点
-    adjust_time_spots = []
-    for i in range(len(factor_series.index)-1):
-        time_spot = asset_series.index[len(asset_series[asset_series.index <= factor_series.index[i + 1]])]
-        adjust_time_spots.append(time_spot)
-    return adjust_time_spots
-
-
-def check_factor(asset_series, factor_series, event_name, config, beginDate=None, endDate=None, period=1):
+def get_adj_factor_series(asset_series, factor_series, beginDate=None, endDate=None, lag=2):
+    """根据时间序列提供所有可能的调仓时间(产生信号后承受波动的第一天), 是一个母集合，
+    因为该函数没有调用事件，因此不知道事件有效时间是从什么时候开始的，
+    所以我们无法确定策略回测的开始时间。
+    具体回测调仓点还受到period,具体事件以及开始结束时间等因素影响
+    为了保证策略回测的第一天就是事件信号产生的那天，beginDate只是一个必要条件，
+    开始时间必然大于等于beginDate
+       :param asset_series: (series) 必须为日度数据
+       :param factor_series: (series) 可以是日度，周度或者月度
+       :param lag: (int) lag这个概念是一个比较精细化的概念,
+       lag=2表示T-1得到的信息只能在T日收盘买入，
+       T+1日才会出现资产的波动，比如一些基于资产价格的因子。
+       但是对于一些宏观因子，我们仍然可以选择lag=2,
+       因为虽然CPI等因子都是白天公布，资产在当日公布之后以收盘价买入，
+       但是CPI公布的是上个月的数据，仍然差距lag=2。
+       如果CPI在每个月的月末公布的是当周的数据，那么lag=1。
+       :return: (Series)
     """
-    因子校验器
+    # 筛选出开始时间到结束时间的区间
+    if beginDate is not None:
+        asset_ret_series = factor_series[(factor_series.index >= beginDate)]
+    elif endDate is not None:
+        asset_ret_series = factor_series[(factor_series.index <= endDate)]
+    # 计算所以调仓时点
+    general_adjust_time_spots = []
+    corresponding_factors = []
+    for i in range(len(factor_series) - 1):
+        length = len(asset_series[asset_series.index < factor_series.index[i + lag - 1]]) + 1
+        if length == 0:  # 资产时间序列第一项必然大于因子的第2项时间
+            # 对于0 情况进行单独处理,如果资产的起始时间和因子事件产生时间相距在1/10个因子周期以内，则计入
+            days_ = (asset_series.index[0] - factor_series.index[i + 1]).days
+            if days_ <= (factor_series.index[1] - factor_series.index[0]).days / 10.0:
+                general_adjust_time_spots.append(asset_series.index[0])
+                corresponding_factors.append(factor_series[i])
+        elif 0 < length < len(asset_series):  # len>0, 该调仓点在asset_series里面
+            time_spot = asset_series.index[length]
+            general_adjust_time_spots.append(time_spot)
+            corresponding_factors.append(factor_series[i])
+        else:
+            break
+    # print corresponding_factors
+    adjust_factor_series = pd.Series(data=corresponding_factors,
+                                     index=general_adjust_time_spots)
+    adjust_factor_series.name = factor_series.name
+    return adjust_factor_series
+
+
+def get_adj_evt_val_series(asset_series, factor_series, event_name, config, beginDate=None, endDate=None):
+    """返回即时生效事件值的事件序列,该函数可以通过事件函数求得事件开始时间"""
+    adj_factor_series = get_adj_factor_series(asset_series, factor_series, beginDate=beginDate, endDate=endDate, lag=2)
+    # 先确定要调用的事件
+    if event_name in event_dict:
+        event = event_dict[event_name]
+    else:
+        print(u"该因子事件还没有收录到因子事件库中，请更新你的因子事件库再重新运行！")
+        return None  # 返回空格表示事件名称没有定义
+
+    # 进行周期化处理
+    period = config["period"]
+    event_values = []
+    time_spots = []
+    start_time_spot = None
+    for i in range(len(adj_factor_series)):
+        event_value = event(adj_factor_series, adj_factor_series.index[i], config)
+        if event_value is None:
+            continue
+        else:
+            if start_time_spot is None:
+                start_time_spot = i
+                event_values.append(event_value)
+                time_spots.append(adj_factor_series.index[i])
+            elif (i - start_time_spot) % period == 0:
+                event_values.append(event_value)
+                time_spots.append(adj_factor_series.index[i])
+            else:
+                continue
+    adj_evt_val_series = pd.Series(data=event_values, index=time_spots)
+    # adj_evt_val_series = pd.Series([event(adj_factor_series, adj_factor_series.index[i], config)
+    #                                 for i in range(len(adj_factor_series))], index=adj_factor_series.index)
+    adj_evt_val_series.name = adj_factor_series.name
+    adj_evt_val_series.dropna(inplace=True)  # 去除前期无信号区域
+    return adj_evt_val_series
+
+
+def sharp_ratio_test(asset_series, factor_series, event_name, config, beginDate=None, endDate=None):
+    """
+    对因子-因子事件进行回测，针对因子信号计算器夏普比率，主要评价因子信号的对称性特征。
+    如果超额夏普比率大，说明因子-因子事件，无论是触发还是没被触发都可以作为一种做多或者做空的信号，
+    注意：如果超额夏普比率不明显，不能说明因子无效。
+    策略的开始时点就是信号产生的时点，特殊情况下，和最近的信号距离不超过因子周期的1/10
     :param beginDate: 
     :param endDate: 
-    :param period: 
     :param asset_series: 
     :param factor_series: 
     :param event_name: 
     :param config: 
-    :return: 
+    :param short: Boolean,默认False,即不允许做空
+    :return: dict
     """
-    # 先确定要调用的事件
-    if event_name == "avg_break":
-        event = avg_break
-    else:
-        print(u"该因子事件还没有收录到因子事件库中，请更新你的因子事件库再重新运行！")
-        return None
-    # 开始回溯
-    pos_list = []  # 每个周期都产生的持仓信号，当period为1时，和period_pos_list是一样的
-    event_value_list = []
-    period_pos_list = []  # 每period个周期，产生一个持仓信号，期间都沿用上一个持仓信号
-    ret_after_signal = []  # 记录信号发出后资产在period内的涨幅
-    times = []
-    asset_ret_series = asset_series.to_frame().pct_change()  # 转换成涨跌幅
-    # 对回测时间进行筛选
-    if beginDate is not None:
-        asset_ret_series = asset_ret_series[(asset_ret_series.index >= beginDate)]
-    elif endDate is not None:
-        asset_ret_series = asset_ret_series[(asset_ret_series.index <= endDate)]
-    asset_ret_series = asset_ret_series[1:]  # 去除首行NA
-    signal_start_index = -1
-    for i in range(len(asset_ret_series)):
-        # 检查因子事件是否返回结果
-        event_result, pos = event(factor_series, asset_series.index[i], config)
-        if event_result is not None:  # 如果定义的起始时间并没有信号，那么起始时间自动延后
-            times.append(asset_ret_series.index[i])
-            # 记录事件值
-            event_value_list.append(event_result)
-            # 记录信号值,将正向事件和负向事件区别对待
-            pos_list.append(0 if (config["postive"] ^ (pos == 0)) else 1)
-            if signal_start_index == -1:
-                # 记录产生信号的第一天的行数
-                signal_start_index = i
-            if (i - signal_start_index) % period == 0:  # 没多少个周期调整一次
-                if event_result > 0:
-                    ret_after_signal.append((asset_ret_series.iloc[i:period + i] + 1).cumprod().values[0] - 1)
-                period_pos_list.append(0 if (config["postive"] ^ (pos == 0)) else 1)
-            else:  # 如果没到更新点，则沿用上个周期的持仓
-                period_pos_list.append(period_pos_list[-1])
-        else:
-            continue
-    res = asset_ret_series.ix[signal_start_index:, [asset_series.name]]
-    res.loc[:, "pos"] = pd.Series(period_pos_list, index=res.index)
-    res.loc[:, "value"] = (res.loc[:, asset_series.name] * res.loc[:, "pos"] + 1).cumprod()
-    res.loc[:, "base"] = (res.loc[:, asset_series.name] + 1).cumprod()
+    adj_evt_val_series = get_adj_evt_val_series(asset_series, factor_series, event_name, config)
+    # 读取配置文件相关信息
+    type = config["type"]
+    relation = config["relation"]
+    if relation == POSTIVE:
+        position_series = adj_evt_val_series.apply(lambda x: 0 if pos_transfer(x) == 0 else 1)
+    elif relation == NEGATIVE:
+        position_series = adj_evt_val_series.apply(lambda x: 0 if neg_tranfer(x) < 0 else 1)
+    position_series.name = "position"
+    period = config["period"]  # 调整周期(以因子单位周期为基准周期)
+    df = adj_evt_val_series.to_frame(name=adj_evt_val_series.name)
+    asset_ret_series = asset_series.pct_change()  # 转换成涨跌幅
+    df = df.join(position_series, how="outer").join(asset_ret_series, how="outer")
+    df.fillna(inplace=True, method="ffill")
+    df = df.dropna()
+    #  此时第一个事件信号产生日期已经确定，接下来要基于period对df事件值列进行再处理
+
+    df.loc[:, "value"] = (df.loc[:, asset_ret_series.name] * df.loc[:, "position"] + 1).cumprod()
+    df.loc[:, "base"] = (df.loc[:, asset_ret_series.name] + 1).cumprod()
+    # 组建返回信息
     report = dict()
-    report["sp"] = sharpe_ratio(res["value"])
-    report["excess_sp"] = - sharpe_ratio(res["base"]) + report["sp"]
-    # 计算IR信息比率
-    report["ir"] = np.average(ret_after_signal) / np.std(ret_after_signal)
-    report["precious"] = np.sum(np.array(ret_after_signal) > 0) * 1.0 / len(ret_after_signal)
-    report["ts"] = res.loc[:, ["value", "base", "pos"]]
+    report["sp"] = sharpe_ratio(df["value"])
+    report["excess_sp"] = - sharpe_ratio(df["base"]) + report["sp"]
+    report["ts"] = df
     return report
 
 
-def calculate_excess_sharp_ratio(asset_series, factor_series, event_name, config, beginDate=None, endDate=None, period=1):
-    """
-    对因子-因子事件进行回测，针对因子信号计算器夏普比率，主要评价因子信号的对称性特征。
-    如果超额夏普比率大，说明因子-因子事件，无论是触发还是没被触发都可以作为一种做多或者做空的信号
-    :param beginDate: 
-    :param endDate: 
-    :param period: 
+def perform_after_event(asset_series, factor_series, event_name, config, begin_date=None, end_date=None,
+                        asset_price=True):
+    """单向因子检验。
+    包括信息比率，最大回撤，等等
+    
     :param asset_series: 
     :param factor_series: 
     :param event_name: 
     :param config: 
+    :param begin_date: 
+    :param end_date: 
+    :param unit: string 默认price，如果是ytm则用收益率表示
+    :return: 
     :return: 
     """
-    # 先确定要调用的事件
-    if event_name == "avg_break":
-        event = avg_break
+    adj_evt_val_series = get_adj_evt_val_series(asset_series, factor_series, event_name, config, begin_date, end_date)
+    relation = config["relation"]  # POSTIVE or NEGATIVE
+    type = config["type"]
+    if asset_price:  # 采用资产价格作为资产表征
+        adj_ret_series = pd.Series(
+            [asset_series.loc[adj_evt_val_series.index[i + 1]] / asset_series.loc[adj_evt_val_series.index[i]] - 1 for i
+             in
+             range(len(adj_evt_val_series) - 1)],
+            index=adj_evt_val_series.index[:-1])
+        adj_ret_series.name = "ret"
+    else:  # 采用收益率作为资产表征
+        adj_ret_series = pd.Series(
+            [(asset_series.loc[adj_evt_val_series.index[i + 1]] - asset_series.loc[adj_evt_val_series.index[i]]) * 100
+             for i
+             in
+             range(len(adj_evt_val_series) - 1)],
+            index=adj_evt_val_series.index[:-1])
+        adj_ret_series.name = "bp"
+    df = pd.concat([adj_evt_val_series, adj_ret_series], axis=1)
+    df = df.dropna()
+    if type == "up":  # 正值产生信号
+        df = df[df[adj_evt_val_series.name] > 0]
+    elif type == "down":  # 负值产生信号
+        df = df[df[adj_evt_val_series.name] < 0]
+    elif type == "linear":  # 正负值都产生信号,不处理
+        pass
     else:
-        print(u"该因子事件还没有收录到因子事件库中，请更新你的因子事件库再重新运行！")
-        return None
-    # 开始回溯
-    pos_list = []  # 每个周期都产生的持仓信号，当period为1时，和period_pos_list是一样的
-    event_value_list = []
-    period_pos_list = []  # 每period个周期，产生一个持仓信号，期间都沿用上一个持仓信号
-    ret_after_signal = []  # 记录信号发出后资产在period内的涨幅
-    times = []
-    asset_ret_series = asset_series.to_frame().pct_change()  # 转换成涨跌幅
-    # 对回测时间进行筛选
-    if beginDate is not None:
-        asset_ret_series = asset_ret_series[(asset_ret_series.index >= beginDate)]
-    elif endDate is not None:
-        asset_ret_series = asset_ret_series[(asset_ret_series.index <= endDate)]
-    asset_ret_series = asset_ret_series[1:]  # 去除首行NA
-    signal_start_index = -1
-    for i in range(len(asset_ret_series)):
-        # 检查因子事件是否返回结果
-        event_result, pos = event(factor_series, asset_series.index[i], config)
-        if event_result is not None:  # 如果定义的起始时间并没有信号，那么起始时间自动延后
-            times.append(asset_ret_series.index[i])
-            # 记录事件值
-            event_value_list.append(event_result)
-            # 记录信号值,将正向事件和负向事件区别对待
-            pos_list.append(0 if (config["postive"] ^ (pos == 0)) else 1)
-            if signal_start_index == -1:
-                # 记录产生信号的第一天的行数
-                signal_start_index = i
-            if (i - signal_start_index) % period == 0:  # 没多少个周期调整一次
-                if event_result > 0:
-                    ret_after_signal.append((asset_ret_series.iloc[i:period + i] + 1).cumprod().values[0] - 1)
-                period_pos_list.append(0 if (config["postive"] ^ (pos == 0)) else 1)
-            else:  # 如果没到更新点，则沿用上个周期的持仓
-                period_pos_list.append(period_pos_list[-1])
-        else:
-            continue
-    res = asset_ret_series.ix[signal_start_index:, [asset_series.name]]
-    res.loc[:, "pos"] = pd.Series(period_pos_list, index=res.index)
-    res.loc[:, "value"] = (res.loc[:, asset_series.name] * res.loc[:, "pos"] + 1).cumprod()
-    res.loc[:, "base"] = (res.loc[:, asset_series.name] + 1).cumprod()
+        raise Exception(u"The type in the config is illegal.")
+    ir = df[adj_ret_series.name].mean() / df[adj_ret_series.name].std()
     report = dict()
-    report["sp"] = sharpe_ratio(res["value"])
-    report["excess_sp"] = - sharpe_ratio(res["base"]) + report["sp"]
-    # 计算IR信息比率
-    report["ir"] = np.average(ret_after_signal) / np.std(ret_after_signal)
-    report["precious"] = np.sum(np.array(ret_after_signal) > 0) * 1.0 / len(ret_after_signal)
-    report["ts"] = res.loc[:, ["value", "base", "pos"]]
+    report["ts"] = df
+    report["ir"] = ir
+    if relation == POSTIVE and asset_price:
+        report["worst_perform"] = df[adj_ret_series.name].min()
+    elif config["type"] == NEGATIVE and asset_price:
+        report["worst_perform"] = df[adj_ret_series.name].max()
+    elif config["type"] == POSTIVE and not asset_price:
+        report["worst_perform"] = df[adj_ret_series.name].max()  # 收益率上行最多
+    elif config["type"] == NEGATIVE and not asset_price:
+        report["worst_perform"] = df[adj_ret_series.name].min()  # 收益率下行最多
     return report
 
 
@@ -154,13 +194,18 @@ def test():
     from datetime import datetime
     beginDate = datetime(2012, 12, 1)
     endDate = datetime(2017, 8, 22)
+    beginDate = datetime(2011, 1, 1)
+    endDate = datetime(2017, 8, 22)
     para = "close"
-    df = WindHelper.getMultiTimeSeriesDataFrame(["060E.CS", "885009.WI"], beginDate=beginDate, endDate=endDate,
+    config = {"relation": NEGATIVE, "type": "up", "his_count": 12, "std_count": 0.5, "period": 1}
+    df = WindHelper.getMultiTimeSeriesDataFrame(["060E.CS"], beginDate=beginDate, endDate=endDate,
                                                 para=para)
     df = df.dropna()
-    df.loc[:, "cm"] = df.loc[:, "060e.cs_close"] / df.loc[:, "885009.wi_close"]
-    result = check_factor(df["060e.cs_close"], df["cm"], "avg_break", {"his_count": 60}, period=5)
-    print result
+    df.tail()
+    factor_df = WindHelper.getMultiTimeSeriesDataFrame(["M0000612"], beginDate=beginDate, endDate=endDate,
+                                                       para=para)
+    factor_df = factor_df.dropna()
+    report2 = perform_after_event(df["060e.cs_close"], factor_df["m0000612_close"], "e001", config)
 
 
 if __name__ == "__main__":

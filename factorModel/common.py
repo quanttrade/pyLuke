@@ -1,26 +1,25 @@
 # encoding: utf-8
 import math
 import numpy as np
+from factorEvent import *
+
+POSTIVE = 2  # 当event_value超过一定的值的时候，产生做多信号；或者event_value低于一定的值的时候，产生做空信号。
+NEGATIVE = -2  # 当event_value超过一定值的时候，产生做空信号
+POSTIVE_RELATED = 1  # 正向线性相关信号
+NEGATIVE_RELATED = -1  # 反向线性相关信号
 
 
-config = {
-    "039.CS": {
-        "cm": {
-            "avg_break":
-                {
-                    "postive": True,
-                    "his_count": 30,
-                    "std_count": 0
-                },
-            "cont_up":
-                {
-                    "cont_count": 3
-                }
-        }
-    }
+event_dict = {"e001": e001}
 
-}
 
+def pos_transfer(event_value):
+    """将正向事件值转换为持仓信号"""
+    return 1 if event_value > 0 else 0  # 做多信号或者无信号
+
+
+def neg_tranfer(event_value):
+    """将负向事件值转换为持仓信号"""
+    return -1 if event_value > 0 else 0  # 做空信号或者无信号
 
 def sharpe_ratio(series, risk_free_rate=0.03):
     """计算夏普比率
@@ -31,4 +30,3 @@ def sharpe_ratio(series, risk_free_rate=0.03):
     daily = series[1:].values / series[:-1] - 1
     sp = math.sqrt(250) * (np.average(daily) - risk_free_rate / 250.0) / np.std(daily)
     return sp
-

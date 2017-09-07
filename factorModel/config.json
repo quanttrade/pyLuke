@@ -1,7 +1,7 @@
 {
-  "039.CS": {
+  "060E.CS": {
     "cm": {
-      "move_avg_break_through": {
+      "e001": {
         "mv_count": 30,
         "forward_count": 1,
         "lag": 1,

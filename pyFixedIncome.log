@@ -810,3 +810,22 @@ Wed, 17 May 2017 01:54:58 TrsFtDayTimeSeriesLoader.py[line:50] INFO TrsFtDayTime
 Wed, 17 May 2017 01:54:58 log.py[line:109] INFO SELECT max(trade_date) FROM fi_ttf_day_ts where type like %(exp)s
 Wed, 17 May 2017 01:54:58 log.py[line:109] INFO {'exp': '%T%'}
 Thu, 20 Jul 2017 23:19:34 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 15:24:30 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 15:35:53 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 15:36:13 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 15:36:27 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 15:37:06 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 15:56:05 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 15:59:44 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 16:05:35 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 16:44:25 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 16:45:48 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 16:55:56 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 16:58:14 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 17:12:03 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 17:22:15 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 17:22:48 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 17:23:26 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 17:24:36 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 17:26:17 myLog.py[line:16] INFO info message
+Wed, 06 Sep 2017 17:26:39 myLog.py[line:16] INFO info message
