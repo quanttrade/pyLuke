@@ -1,6 +1,6 @@
 # encoding: utf-8
 import pandas as pd
-from factorEvent import *
+import factorEvent
 from common import *
 import numpy as np
 
@@ -12,6 +12,8 @@ def get_adj_factor_series(asset_series, factor_series, beginDate=None, endDate=N
     具体回测调仓点还受到period,具体事件以及开始结束时间等因素影响
     为了保证策略回测的第一天就是事件信号产生的那天，beginDate只是一个必要条件，
     开始时间必然大于等于beginDate
+       :param beginDate: 
+       :param endDate: 
        :param asset_series: (series) 必须为日度数据
        :param factor_series: (series) 可以是日度，周度或者月度
        :param lag: (int) lag这个概念是一个比较精细化的概念,
@@ -25,9 +27,9 @@ def get_adj_factor_series(asset_series, factor_series, beginDate=None, endDate=N
     """
     # 筛选出开始时间到结束时间的区间
     if beginDate is not None:
-        asset_ret_series = factor_series[(factor_series.index >= beginDate)]
+        factor_series = factor_series[(factor_series.index >= beginDate)]
     elif endDate is not None:
-        asset_ret_series = factor_series[(factor_series.index <= endDate)]
+        factor_series = factor_series[(factor_series.index <= endDate)]
     # 计算所以调仓时点
     general_adjust_time_spots = []
     corresponding_factors = []
@@ -52,16 +54,20 @@ def get_adj_factor_series(asset_series, factor_series, beginDate=None, endDate=N
     return adjust_factor_series
 
 
-def get_adj_evt_val_series(asset_series, factor_series, event_name, config, beginDate=None, endDate=None):
+def get_adj_evt_val_series(asset_series, factor_series, event_name, config, beginDate=None, endDate=None, lag=2):
     """返回即时生效事件值的事件序列,该函数可以通过事件函数求得事件开始时间"""
-    adj_factor_series = get_adj_factor_series(asset_series, factor_series, beginDate=beginDate, endDate=endDate, lag=2)
+    adj_factor_series = get_adj_factor_series(asset_series, factor_series, beginDate=beginDate, endDate=endDate,
+                                              lag=lag)
     # 先确定要调用的事件
-    if event_name in event_dict:
-        event = event_dict[event_name]
-    else:
-        print(u"该因子事件还没有收录到因子事件库中，请更新你的因子事件库再重新运行！")
-        return None  # 返回空格表示事件名称没有定义
-
+    # if event_name in event_dict:
+    #     event = event_dict[event_name]
+    # else:
+    #     raise Exception(u"该因子事件还没有收录到因子事件库中，请更新你的因子事件库再重新运行！")
+    #     # return None  # 返回空格表示事件名称没有定义
+    try:
+        event = getattr(factorEvent, event_name)
+    except:
+        raise Exception(u"该因子事件还没有收录到因子事件库中，请更新你的因子事件库再重新运行！")
     # 进行周期化处理
     period = config["period"]
     event_values = []
@@ -89,7 +95,46 @@ def get_adj_evt_val_series(asset_series, factor_series, event_name, config, begi
     return adj_evt_val_series
 
 
-def sharp_ratio_test(asset_series, factor_series, event_name, config, beginDate=None, endDate=None):
+def get_pos_series(adj_evt_val_series, relation, type_, short):
+    if short:  # 可以做空，说明该资产为期货，无票息收益，不适宜长期持有
+        if relation == POSITIVE:
+            if type_ == UP:  # 正向且只有做多信号
+                position_series = adj_evt_val_series.apply(lambda x: 1 if x > 0 else 0)
+            elif type_ == DOWN:  # 正向且只有做空信号
+                position_series = adj_evt_val_series.apply(lambda x: -1 if x < 0 else 0)
+            elif type_ == ALL:
+                position_series = adj_evt_val_series.apply(lambda x: (1 if x > 0 else 0) if x >= 0 else -1)
+        elif relation == NEGATIVE:
+            if type_ == UP:  # 负向且只有做空信号
+                position_series = adj_evt_val_series.apply(lambda x: -1 if x > 0 else 0)
+            elif type_ == DOWN:  # 负向且只有做多信号
+                position_series = adj_evt_val_series.apply(lambda x: 1 if x < 0 else 0)
+            elif type_ == ALL:
+                position_series = adj_evt_val_series.apply(lambda x: (-1 if x > 0 else 0) if x >= 0 else 1)
+        else:
+            raise Exception(u"relation的值无法识别！")
+    else:  # 不可做空,说明为现券指数，可长期持有
+        if relation == POSITIVE:
+            if type_ == UP:  # 正向且只有做多信号
+                position_series = adj_evt_val_series.apply(lambda x: 1 if x > 0 else 0)
+            elif type_ == DOWN:  # 正向且只有做空信号
+                position_series = adj_evt_val_series.apply(lambda x: 0 if x < 0 else 1)
+            elif type_ == ALL:
+                position_series = adj_evt_val_series.apply(lambda x: (1 if x > 0 else 0) if x >= 0 else 0)
+        elif relation == NEGATIVE:
+            if type_ == UP:  # 负向且只有做空信号
+                position_series = adj_evt_val_series.apply(lambda x: 0 if x > 0 else 1)
+            elif type_ == DOWN:  # 负向且只有做多信号
+                position_series = adj_evt_val_series.apply(lambda x: 1 if x < 0 else 0)
+            elif type_ == ALL:
+                position_series = adj_evt_val_series.apply(lambda x: 0 if x >= 0 else 1)
+        else:
+            raise Exception(u"relation的值无法识别！")
+    position_series.name = "position"
+    return position_series
+
+
+def sharp_ratio_test(asset_series, factor_series, event_name, config, beginDate=None, endDate=None, lag=2, short=False):
     """
     对因子-因子事件进行回测，针对因子信号计算器夏普比率，主要评价因子信号的对称性特征。
     如果超额夏普比率大，说明因子-因子事件，无论是触发还是没被触发都可以作为一种做多或者做空的信号，
@@ -104,16 +149,12 @@ def sharp_ratio_test(asset_series, factor_series, event_name, config, beginDate=
     :param short: Boolean,默认False,即不允许做空
     :return: dict
     """
-    adj_evt_val_series = get_adj_evt_val_series(asset_series, factor_series, event_name, config)
+    adj_evt_val_series = get_adj_evt_val_series(asset_series, factor_series, event_name, config, lag=lag)
     # 读取配置文件相关信息
-    type = config["type"]
+    type_ = config["type"]
     relation = config["relation"]
-    if relation == POSTIVE:
-        position_series = adj_evt_val_series.apply(lambda x: 0 if pos_transfer(x) == 0 else 1)
-    elif relation == NEGATIVE:
-        position_series = adj_evt_val_series.apply(lambda x: 0 if neg_tranfer(x) < 0 else 1)
-    position_series.name = "position"
-    period = config["period"]  # 调整周期(以因子单位周期为基准周期)
+    position_series = get_pos_series(adj_evt_val_series, relation, type_, short)
+    # period = config["period"]  # 调整周期(以因子单位周期为基准周期)
     df = adj_evt_val_series.to_frame(name=adj_evt_val_series.name)
     asset_ret_series = asset_series.pct_change()  # 转换成涨跌幅
     df = df.join(position_series, how="outer").join(asset_ret_series, how="outer")
@@ -132,7 +173,7 @@ def sharp_ratio_test(asset_series, factor_series, event_name, config, beginDate=
 
 
 def perform_after_event(asset_series, factor_series, event_name, config, begin_date=None, end_date=None,
-                        asset_price=True):
+                        asset_price=True, lag=2):
     """单向因子检验。
     包括信息比率，最大回撤，等等
     
@@ -142,13 +183,14 @@ def perform_after_event(asset_series, factor_series, event_name, config, begin_d
     :param config: 
     :param begin_date: 
     :param end_date: 
-    :param unit: string 默认price，如果是ytm则用收益率表示
-    :return: 
+    :param asset_price: string 默认True，如果是ytm则为False
+    :param lag
     :return: 
     """
-    adj_evt_val_series = get_adj_evt_val_series(asset_series, factor_series, event_name, config, begin_date, end_date)
+    adj_evt_val_series = get_adj_evt_val_series(asset_series, factor_series, event_name,
+                                                config, begin_date, end_date, lag)
     relation = config["relation"]  # POSTIVE or NEGATIVE
-    type = config["type"]
+    type_ = config["type"]
     if asset_price:  # 采用资产价格作为资产表征
         adj_ret_series = pd.Series(
             [asset_series.loc[adj_evt_val_series.index[i + 1]] / asset_series.loc[adj_evt_val_series.index[i]] - 1 for i
@@ -166,23 +208,25 @@ def perform_after_event(asset_series, factor_series, event_name, config, begin_d
         adj_ret_series.name = "bp"
     df = pd.concat([adj_evt_val_series, adj_ret_series], axis=1)
     df = df.dropna()
-    if type == "up":  # 正值产生信号
+    origin_ts = df
+    if type_ == UP:  # 正值产生信号
         df = df[df[adj_evt_val_series.name] > 0]
-    elif type == "down":  # 负值产生信号
+    elif type_ == DOWN:  # 负值产生信号
         df = df[df[adj_evt_val_series.name] < 0]
-    elif type == "linear":  # 正负值都产生信号,不处理
+    elif type_ == ALL:  # 正负值都产生信号,不处理
         pass
     else:
         raise Exception(u"The type in the config is illegal.")
     ir = df[adj_ret_series.name].mean() / df[adj_ret_series.name].std()
     report = dict()
+    report["origin_ts"] = origin_ts
     report["ts"] = df
     report["ir"] = ir
-    if relation == POSTIVE and asset_price:
+    if relation == POSITIVE and asset_price:
         report["worst_perform"] = df[adj_ret_series.name].min()
     elif config["type"] == NEGATIVE and asset_price:
         report["worst_perform"] = df[adj_ret_series.name].max()
-    elif config["type"] == POSTIVE and not asset_price:
+    elif config["type"] == POSITIVE and not asset_price:
         report["worst_perform"] = df[adj_ret_series.name].max()  # 收益率上行最多
     elif config["type"] == NEGATIVE and not asset_price:
         report["worst_perform"] = df[adj_ret_series.name].min()  # 收益率下行最多
@@ -190,14 +234,16 @@ def perform_after_event(asset_series, factor_series, event_name, config, begin_d
 
 
 def test():
+    case2()
+
+
+def case1():
     from windHelper import WindHelper
     from datetime import datetime
-    beginDate = datetime(2012, 12, 1)
-    endDate = datetime(2017, 8, 22)
     beginDate = datetime(2011, 1, 1)
     endDate = datetime(2017, 8, 22)
     para = "close"
-    config = {"relation": NEGATIVE, "type": "up", "his_count": 12, "std_count": 0.5, "period": 1}
+    config = {"relation": NEGATIVE, "type": UP, "his_count": 12, "std_count": 0.5, "period": 1}
     df = WindHelper.getMultiTimeSeriesDataFrame(["060E.CS"], beginDate=beginDate, endDate=endDate,
                                                 para=para)
     df = df.dropna()
@@ -205,7 +251,23 @@ def test():
     factor_df = WindHelper.getMultiTimeSeriesDataFrame(["M0000612"], beginDate=beginDate, endDate=endDate,
                                                        para=para)
     factor_df = factor_df.dropna()
-    report2 = perform_after_event(df["060e.cs_close"], factor_df["m0000612_close"], "e001", config)
+    config = {"period": 5, "relation": NEGATIVE, "type": UP, "his_count": 30, "threshold": 0}
+    report2 = perform_after_event(df["060e.cs_close"], factor_df["m0000612_close"], "e002x1", config)
+
+
+def case2():
+    from windHelper import WindHelper
+    from datetime import *
+    beginDate = datetime(2011, 1, 1)
+    endDate = datetime(2017, 8, 22)
+    para = "close"
+    df = WindHelper.getEDBTimeSeriesDataFrame(["S0059749"], beginDate=beginDate, endDate=endDate)
+    df = df.dropna()
+    factor_df = WindHelper.getMultiTimeSeriesDataFrame(["M0000612"], beginDate=beginDate, endDate=endDate,
+                                                       para=para)
+    factor_df.index = factor_df.index - timedelta(days=10)
+    config = {"relation": NEGATIVE, "type": UP, "his_count": 18, "std_count": 2, "period": 1}
+    report = sharp_ratio_test(df, factor_df, "e001", config, lag=2)
 
 
 if __name__ == "__main__":
