@@ -29,12 +29,12 @@ class TrsFtDayTimeSeriesLoader(BaseTimeSeriesDataLoader):
             beginDate, endDate = self.beginAndEndDate(dbObject=TrsFtDayTimeSeries, column="type", target=contractType)
             if beginDate is None:
                 if contractType == "TF":
-                    beginDate = WindHelper.getWindInfoDataFrame("TF1312.CFE", ["ipo_date"]).ipo_date[0].to_pydatetime()
+                    beginDate = WindHelper.getInfoDataFrame("TF1312.CFE", ["ipo_date"]).ipo_date[0].to_pydatetime()
                 elif contractType == "T":
-                    beginDate = WindHelper.getWindInfoDataFrame("T1509.CFE", "ipo_date").ipo_date[0].to_pydatetime()
+                    beginDate = WindHelper.getInfoDataFrame("T1509.CFE", "ipo_date").ipo_date[0].to_pydatetime()
             if beginDate.date() <= endDate.date():
                 for type_ in self.typeDict[contractType]:
-                    df = WindHelper.getWindTimeSeriesDataFrame(type_, beginDate, endDate, self.windParaList)
+                    df = WindHelper.getTimeSeriesDataFrame(type_, beginDate, endDate, self.windParaList)
                     df.loc[:, "type"] = type_
                     df.rename(columns={'trade_hiscode': 'code'}, inplace=True)
                     #TODO: 需要从TrsFtInfo里面得到信息

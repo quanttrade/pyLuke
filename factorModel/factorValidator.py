@@ -8,7 +8,7 @@ import numpy as np
 def get_adj_factor_series(asset_series, factor_series, beginDate=None, endDate=None, lag=2):
     """根据时间序列提供所有可能的调仓时间(产生信号后承受波动的第一天), 是一个母集合，
     因为该函数没有调用事件，因此不知道事件有效时间是从什么时候开始的，
-    所以我们无法确定策略回测的开始时间。
+    所以我们无法确定策略回测的真正开始时间。
     具体回测调仓点还受到period,具体事件以及开始结束时间等因素影响
     为了保证策略回测的第一天就是事件信号产生的那天，beginDate只是一个必要条件，
     开始时间必然大于等于beginDate

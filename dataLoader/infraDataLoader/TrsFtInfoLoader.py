@@ -25,11 +25,11 @@ def getAllContracts(contractType, beginDate, endDate):
     # volume 成交量
     # settle 结算价
     para = ["trade_hiscode"]
-    nearDF = WindHelper.getWindTimeSeriesDataFrame(nearCode, beginDate, endDate, para)
+    nearDF = WindHelper.getTimeSeriesDataFrame(nearCode, beginDate, endDate, para)
     # 国债期货下季列表
-    farDF = WindHelper.getWindTimeSeriesDataFrame(farCode, beginDate, endDate, para)
+    farDF = WindHelper.getTimeSeriesDataFrame(farCode, beginDate, endDate, para)
     # 国债期货隔季合约
-    farfarDF = WindHelper.getWindTimeSeriesDataFrame(farfarCode, beginDate, endDate, para)
+    farfarDF = WindHelper.getTimeSeriesDataFrame(farfarCode, beginDate, endDate, para)
     # 获取国债期货时间序列基础表：
     # 日期，当季合约，当季结算价，持仓量，下季合约，下季结算价，持仓量，隔季合约，隔季结算价，持仓量
     baseDF = pd.DataFrame(nearDF).append(farDF).append(farfarDF)

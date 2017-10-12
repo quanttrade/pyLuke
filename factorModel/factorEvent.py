@@ -2,8 +2,13 @@
 # 编写因子事件
 import pandas as pd
 
+# from common import *
+"""
+元事件列表
+"""
 
-def e001(factor_series, cur_date, config):
+
+def e000(factor_series, cur_date, config):
     """
     
     :param factor_series: 
@@ -31,11 +36,22 @@ def e001(adjust_factor_series, cur_date, config):
     his_start_num = his_end_num - his_count + 1
     if his_start_num < 0:
         return None
-    avg = adjust_factor_series.iloc[his_start_num:his_end_num + 1].mean()
-    std = adjust_factor_series.iloc[his_start_num:his_end_num + 1].std()
+    avg = adjust_factor_series.iloc[his_start_num:his_end_num].mean()  # 不包含his_end_num
+    std = adjust_factor_series.iloc[his_start_num:his_end_num].std()
     # 返回信号值
     event_value = adjust_factor_series.iloc[his_end_num] - avg - std_count * std
     return event_value
+
+
+def digit_decorator(event, relation, type):
+    """数字事件封装的装饰器
+    :param event: 
+    :param relation: 
+    :param type_: UP 正值产生信号，DOWN 负值产生信号，ALL正负值都产生信号
+    """
+
+    def wrapper(factor_series, cur_date, condig):
+        pass
 
 
 def e002x1(factor_series, cur_date, config):
@@ -69,7 +85,7 @@ def e002x2(factor_series, cur_date, config):
     his_count = config["his_count"]
     threshold = config["threshold"]
     his_end_ind = len(factor_series[factor_series.index <= cur_date]) - 1
-    his_start_ind = his_end_ind - his_count
+    his_start_ind = his_end_ind - his_count - 1  # 收益率需要多算一个
     if his_start_ind >= 0:
         his_wind_series = factor_series.iloc[his_start_ind:his_end_ind + 1]
         count = ((his_wind_series.pct_change()) < threshold).sum()
@@ -109,7 +125,7 @@ def e003x1(factor_series, cur_date, config):
     threshold = config["threshold"]
     threshold2 = config["threshold2"]  # 反转幅度
     his_end_ind = len(factor_series[factor_series.index <= cur_date]) - 1
-    his_start_ind = his_end_ind - his_count - 1
+    his_start_ind = his_end_ind - his_count - 1  # 收益率需要多算一个
     if his_start_ind >= 0:
         his_wind_series = factor_series.iloc[his_start_ind:his_end_ind + 1]
         his_wind_returns = his_wind_series.pct_change()
@@ -132,10 +148,10 @@ def e003x2(factor_series, cur_date, config):
     :return: 
     """
     his_count = config["his_count"]
-    threshold = config["threshold"]
+    threshold = config["threshold"]  # 下跌幅度
     threshold2 = config["threshold2"]  # 反转幅度
     his_end_ind = len(factor_series[factor_series.index <= cur_date]) - 1
-    his_start_ind = his_end_ind - his_count - 1
+    his_start_ind = his_end_ind - his_count
     if his_start_ind >= 0:
         his_wind_series = factor_series.iloc[his_start_ind:his_end_ind + 1]
         his_wind_returns = his_wind_series.pct_change()
@@ -184,9 +200,37 @@ def e004(factor_series, cur_date, config):
 
 def e005(factor_series, cur_date, config):
     """超过一定的阈值H持续N个周期"""
-    his_count = config["his_count"]
-    threshold = config["threshold"]
     pass
+
+
+def e006(factor_series, cur_date, config):
+    """M周期均线和N周期均线的差，判断趋势"""
+    long_count = config["long_count"]
+    short_count = config["short_count"]
+    std_count = config["std_count"]
+    end_num = len(factor_series[factor_series.index <= cur_date]) - 1
+    long_start_num = end_num - long_count + 1
+    if long_start_num < 0:
+        return None
+    long_mean = factor_series.iloc[long_start_num:end_num + 1].mean()
+    short_start_num = end_num - short_count + 1
+    short_mean = factor_series.iloc[short_start_num:end_num + 1].mean()
+    std = factor_series.iloc[long_start_num:end_num - 1].std()
+    event_value = short_mean - long_mean - std_count * std
+    return event_value
+
+
+def e007(factor_series, cur_date, config):
+    """
+    RSI：N日RSI=[A÷(A+B)]×100%；
+    公式中，A——N日内收盘涨幅之和；
+    B——N日内收盘跌幅之和(取正值)；
+    N日RSI=100-100/(1+RS)
+    :param factor_series: 
+    :param cur_date: 
+    :param config: 
+    :return: 
+    """
 
 
 def rank_limit(factor_series, cur_date, up_rank, period=1):
@@ -210,6 +254,14 @@ def test():
     series = pd.Series(data=range(len(data_index)), index=data_index)
     print series
     print e002x1(factor_series=series, cur_date=data_index[10], config={"his_count": 3, "threshold": 0.2})
+
+
+def case_e000():
+    pass
+
+
+def case_e001():
+    pass
 
 
 if __name__ == "__main__":
